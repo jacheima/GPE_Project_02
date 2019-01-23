@@ -10,6 +10,8 @@ public class ShipController : MonoBehaviour
     public float Speed;
     public GameObject Shot;
     public Transform ShotSpawn;
+    public float FireRate;
+    private float _nextFire;
 
 
 	// Use this for initialization
@@ -20,7 +22,13 @@ public class ShipController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-        //the shooting code will go in this section
+	    if (Input.GetKeyDown(KeyCode.Space) && Time.time > _nextFire)
+	    {
+	        _nextFire = Time.time + FireRate;
+	        //GameObject clone =           
+	        Instantiate(Shot, ShotSpawn.position, ShotSpawn.rotation);
+	        //as GameObject;
+	    }
 	    
 	}
     private void FixedUpdate()
