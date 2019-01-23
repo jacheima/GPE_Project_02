@@ -1,51 +1,62 @@
-﻿ using System.Collections;
+﻿//Project 2: Ultimate Asteroids Tactical-Control
+//Programmer: Jacquelynne Heiman
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipController : MonoBehaviour {
+public class ShipController : MonoBehaviour
+{
 
-    public Vector2 center = new Vector2(0.0f, 0.0f);
-    private Transform ship;
-    public float speed;
-    public GameObject bullet;
-    public Transform shotSpawn;
+    public float Speed;
+    public GameObject Shot;
+    public Transform ShotSpawn;
 
 
 	// Use this for initialization
 	void Start () {
-        ship = GetComponent<Transform>();
+        
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        
+	void Update ()
+	{
+        //the shooting code will go in this section
 	    
 	}
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) // if the player presses the left arrow or the a key
+        // if the player presses the left arrow or the a key
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) 
         {
-            transform.Rotate(new Vector3(0f, 0f, 90f) * Time.deltaTime);
+            //This rotates the ship on the z axis 90 degrees over 1 second. This allows for a smoother rotate in a positive direction.
+            transform.Rotate(new Vector3(0f, 0f, 90f) * Time.deltaTime);  
         }
 
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))  // if the player presses the right arrow or d key
+        // if the player presses the right arrow or d key
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))  
         {
-            transform.Rotate(new Vector3(0f, 0f, -90f) * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))  //if the player presses the up arrow or the w key
-        {
-            transform.position += transform.up * speed;
+            //This rotates the ship on the z axis 90 degrees over 1 second. This allows for a smoother rotate in a negative direction.
+            transform.Rotate(new Vector3(0f, 0f, -90f) * Time.deltaTime); 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        //if the player presses the up arrow or the w key
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))  
         {
-            Instantiate(bullet, shotSpawn.position, shotSpawn.rotation);
-
+            // This lets the player move forward in the direction they are facing
+            transform.position += transform.up * Speed;
         }
 
+        //if the player press space bar
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+          //this is where the shooting mechanic will go
+        }
+
+        // if the player presses q
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            gameObject.SetActive(false);
+            //the game object with be set to inactive
+            gameObject.SetActive(false); 
         }
     }
 }
