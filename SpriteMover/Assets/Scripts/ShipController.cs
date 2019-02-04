@@ -13,6 +13,8 @@ public class ShipController : MonoBehaviour
     public float FireRate;
     private float _nextFire;
 
+    private GameController gameController;
+
 
 	// Use this for initialization
 	void Start () {
@@ -66,6 +68,20 @@ public class ShipController : MonoBehaviour
             //the game object with be set to inactive
             gameObject.SetActive(false); 
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag != "Bullet")
+        {
+            //move the ship to the center of the screen
+            transform.position = new Vector3(0, 0, 0);
+
+            //lose a life
+            gameController.DecrementLives();
+        }
+
+
     }
 }
 

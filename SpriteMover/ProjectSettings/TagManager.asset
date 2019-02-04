@@ -6,7 +6,10 @@ TagManager:
   tags:
   - Undefined
   - bullet
-  - asteroid
+  - Big Asteroid
+  - Small Asteroid
+  - ship
+  - Large Asteroid
   layers:
   - Default
   - TransparentFX
