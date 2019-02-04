@@ -58,7 +58,9 @@ public class GameController : MonoBehaviour {
         //If any asteroids are left over from the previous game, subtract them
         asteroidsRemaining = (wave * increaseEachWave);
 
-        for (int i = 0; i < asteroidsRemaining; i++)
+        int i;
+
+        for (i = 0; i < asteroidsRemaining; i++)
         {
             //Spawn asteroid
             Instantiate(asteroid, new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-9.5f, 9.5f), 0), Quaternion.Euler(0, 0, Random.Range(-0.0f, 359.0f)));
@@ -81,14 +83,14 @@ public class GameController : MonoBehaviour {
             //Save the new high score
             PlayerPrefs.SetInt("highscore", highScore);
 
-            //Did the player destroy all the asteroids?
-            if (asteroidsRemaining < 1)
-            {
-                wave++;
-                SpawnAsteroids();
-            }
+
         }
 
+        if (asteroidsRemaining < 1)
+        {
+            wave++;
+            SpawnAsteroids();
+        }
     }
 
     public void DecrementLives()
@@ -107,6 +109,9 @@ public class GameController : MonoBehaviour {
     public void DecrementAsteroids()
     {
         asteroidsRemaining--;
+
+        //Did the player destroy all the asteroids?
+        
     }
 
     public void SplitAsteroid()

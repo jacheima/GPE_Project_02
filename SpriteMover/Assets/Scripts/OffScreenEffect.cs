@@ -16,12 +16,12 @@ public class OffScreenEffect : MonoBehaviour
     {
 
         //destroy the game object if it leaves the screen
-        if (transform.position.y > 14.35 || transform.position.y < -14.35)
+        if (transform.position.y > 13.2 || transform.position.y < -13.2)
         {
             Destroy(gameObject);
         }
 
-        if (transform.position.x > 27.2 || transform.position.x < -27.2)
+        if (transform.position.x > 23.5 || transform.position.x < -23.5)
         {
             Destroy(gameObject);
         }

@@ -13,22 +13,22 @@ public class ReEnterScreen : MonoBehaviour {
 	void Update () {
 
         //teleport asteroids
-        if (transform.position.y > 14.35)
+        if (transform.position.y > 13.2)
         {
-            transform.position = new Vector3(transform.position.x, -14.35f, 0);
+            transform.position = new Vector3(transform.position.x, -13.2f, 0);
         }
 
-        if (transform.position.y < -14.35)
+        if (transform.position.y < -13.2)
         {
-            transform.position = new Vector3(transform.position.x, 14.35f, 0);
+            transform.position = new Vector3(transform.position.x, 13.2f, 0);
         }
-        if (transform.position.x > 27.2)
+        if (transform.position.x > 23.5)
         {
-            transform.position = new Vector3(-27.2f, transform.position.x, 0);
+            transform.position = new Vector3(-23.5f, transform.position.x, 0);
         }
-        if (transform.position.x < -27.2)
+        if (transform.position.x < -23.5)
         {
-            transform.position = new Vector3(27.2f, transform.position.x, 0);
+            transform.position = new Vector3(23.5f, transform.position.x, 0);
         }
     }
 }

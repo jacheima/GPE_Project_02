@@ -17,9 +17,15 @@ public class ShipController : MonoBehaviour
 
 
 	// Use this for initialization
-	void Start () {
-        
-	}
+	void Start ()
+	{
+	    // Get a reference to the game controller object and the script
+	    GameObject gameControllerObject =
+	        GameObject.FindWithTag("GameController");
+
+	    gameController =
+	        gameControllerObject.GetComponent<GameController>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -72,8 +78,10 @@ public class ShipController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag != "Bullet")
+        if (other.gameObject.tag != "bullet")
         {
+            Debug.Log("OnTriggerEnter Text");
+
             //move the ship to the center of the screen
             transform.position = new Vector3(0, 0, 0);
 
