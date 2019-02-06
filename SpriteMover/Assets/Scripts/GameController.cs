@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour {
         for (i = 0; i < asteroidsRemaining; i++)
         {
             //Spawn asteroid
-            Instantiate(asteroid, new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-9.5f, 9.5f), 0), Quaternion.Euler(0, 0, Random.Range(-0.0f, 359.0f)));
+            Instantiate(asteroid, new Vector3(Random.Range(-13.2f, 13.2f), Random.Range(-23.5f, 23.5f), 0), Quaternion.Euler(0, 0, Random.Range(-0.0f, 359.0f)));
         }
 
         waveText.text = "Wave: " + wave;
@@ -109,8 +109,7 @@ public class GameController : MonoBehaviour {
     public void DecrementAsteroids()
     {
         asteroidsRemaining--;
-
-        //Did the player destroy all the asteroids?
+        IncrementScore();
         
     }
 
