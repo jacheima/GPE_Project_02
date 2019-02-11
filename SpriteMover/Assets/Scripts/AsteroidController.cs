@@ -69,7 +69,7 @@ public class AsteroidController : MonoBehaviour
 
         //move the asteroid towards the player's position at the time of spawning
         float move = speed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(this.transform.position, playerShip.transform.position, move);
+        transform.position = Vector2.MoveTowards(transform.position, playerShip.transform.position, move);
 
     }
 }
