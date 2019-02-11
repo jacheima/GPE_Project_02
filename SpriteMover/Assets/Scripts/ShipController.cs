@@ -13,18 +13,13 @@ public class ShipController : MonoBehaviour
     public float FireRate;
     private float _nextFire;
 
-    private GameController gameController;
+
 
 
 	// Use this for initialization
 	void Start ()
 	{
-	    // Get a reference to the game controller object and the script
-	    GameObject gameControllerObject =
-	        GameObject.FindWithTag("GameController");
-
-	    gameController =
-	        gameControllerObject.GetComponent<GameController>();
+	   
     }
 	
 	// Update is called once per frame
@@ -76,20 +71,6 @@ public class ShipController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag != "bullet")
-        {
-            Debug.Log("OnTriggerEnter Text");
-
-            //move the ship to the center of the screen
-            transform.position = new Vector3(0, 0, 0);
-
-            //lose a life
-            gameController.DecrementLives();
-        }
-
-
-    }
+   
 }
 
