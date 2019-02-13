@@ -11,17 +11,23 @@ public class gameManager : MonoBehaviour
     public GameObject spawn3;
     public GameObject spawn4;
     public GameObject player;
-
-    public float enemyShipRotationSpeed;
-    public Vector3 enemyShipSpeed;
-
-    private float asteroidsInFeild;
-
     public GameObject largeAsteroid;
+    public GameObject enemyShip;
 
+    
+    public float asteroidsInField;
     public float spawnLocationNumber;
+    public float enemyShipSpeed = .08f;
+    public float enemyShipRotationSpeed = .08f;
 
-    public static gameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
+    public int score;
+
+    
+
+
+
+    //Static instance of GameManager which allows it to be accessed by any other script.
+    public static gameManager instance = null;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -54,32 +60,55 @@ public class gameManager : MonoBehaviour
 	void Update ()
 	{
 
-	    spawnLocationNumber = Random.Range(1, 5);
+	    spawnLocationNumber = Random.Range(1, 6);
 	    SpawnAsteroids();
 	}
 
     void SpawnAsteroids()
     {
-        if (spawnLocationNumber == 1 && asteroidsInFeild < 1)
+        if (spawnLocationNumber == 1 && asteroidsInField < 3)
         {
             Instantiate(largeAsteroid, spawn1.transform.position, spawn1.transform.rotation);
-            asteroidsInFeild++;
+            asteroidsInField++;
         }
 
-        if (spawnLocationNumber == 2 && asteroidsInFeild < 1)
+        if (spawnLocationNumber == 2 && asteroidsInField < 3)
         {
             Instantiate(largeAsteroid, spawn2.transform.position, spawn2.transform.rotation);
-            asteroidsInFeild++;
+            asteroidsInField++;
         }
-        if (spawnLocationNumber == 3 && asteroidsInFeild < 1)
+        if (spawnLocationNumber == 3 && asteroidsInField < 3)
         {
             Instantiate(largeAsteroid, spawn3.transform.position, spawn3.transform.rotation);
-            asteroidsInFeild++;
+            asteroidsInField++;
+
         }
-        if (spawnLocationNumber == 4 && asteroidsInFeild < 1)
+        if (spawnLocationNumber == 4 && asteroidsInField < 3)
         {
             Instantiate(largeAsteroid, spawn4.transform.position, spawn4.transform.rotation);
-            asteroidsInFeild++;
+            asteroidsInField++;
         }
+        if (spawnLocationNumber == 5 && asteroidsInField < 3)
+        {
+            Instantiate(enemyShip, spawn4.transform.position, spawn4.transform.rotation);
+            asteroidsInField++;
+        }
+    }
+
+
+    public void SplitAsteroid()
+    {
+        //Add 1 asteroid to the asteroid remaining count
+        asteroidsInField++;
+    }
+
+    public void IncrementScore()
+    {
+        score++;
+    }
+
+    public void DecrementAsteroids()
+    {
+        asteroidsInField--;
     }
 }

@@ -210,7 +210,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 415027163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.094, y: -1.05, z: 0}
+  m_LocalPosition: {x: -3.091, y: -2.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1021988370}
@@ -248,11 +248,14 @@ MonoBehaviour:
   spawn3: {fileID: 1992859093}
   spawn4: {fileID: 415027163}
   player: {fileID: 1778292676}
-  enemyShipRotationSpeed: 1
-  enemyShipSpeed: {x: 0, y: 0, z: 0}
   largeAsteroid: {fileID: 1049741548798378, guid: c66c46fb683124a4cbfa4fa204a1b5c5,
     type: 2}
+  enemyShip: {fileID: 1321949947264318, guid: 320616f0765c88c41a1f68f98c140594, type: 2}
+  asteroidsInField: 0
   spawnLocationNumber: 0
+  enemyShipSpeed: 1
+  enemyShipRotationSpeed: 0.5
+  score: 0
 --- !u!4 &559197189
 Transform:
   m_ObjectHideFlags: 0
@@ -414,6 +417,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212119500103127438, guid: e34757c224f6787469d9dd8779875e1b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e34757c224f6787469d9dd8779875e1b, type: 2}
   m_IsPrefabAsset: 0
@@ -516,7 +524,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1969906853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.984, y: 0.74, z: 0}
+  m_LocalPosition: {x: 2.892, y: 2.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1021988370}
@@ -544,7 +552,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1992859093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.984, y: -1.05, z: 0}
+  m_LocalPosition: {x: 2.893, y: -2.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1021988370}
@@ -572,7 +580,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2128361189}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.094, y: 0.74, z: 0}
+  m_LocalPosition: {x: -3.13, y: 2.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1021988370}
