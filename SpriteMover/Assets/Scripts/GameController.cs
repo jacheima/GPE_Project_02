@@ -81,12 +81,13 @@ public class GameController : MonoBehaviour {
             //Save the new high score
             PlayerPrefs.SetInt("highscore", highScore);
 
-            //Did the player destroy all the asteroids?
-            if (asteroidsRemaining < 1)
-            {
-                wave++;
-                SpawnAsteroids();
-            }
+        }
+
+        //Did the player destroy all the asteroids?
+        if (asteroidsRemaining < 1)
+        {
+            wave++;
+            SpawnAsteroids();
         }
 
     }

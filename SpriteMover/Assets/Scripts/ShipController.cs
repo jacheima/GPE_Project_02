@@ -61,18 +61,11 @@ public class ShipController : MonoBehaviour
         {
           //this is where the shooting mechanic will go
         }
-
-        // if the player presses q
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            //the game object with be set to inactive
-            gameObject.SetActive(false); 
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag != "Bullet")
+        if (other.gameObject.tag != "bullet")
         {
             //move the ship to the center of the screen
             transform.position = new Vector3(0, 0, 0);
