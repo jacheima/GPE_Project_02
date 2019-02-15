@@ -63,13 +63,12 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AsteroidController.cs" />
     <Compile Include="Assets\Scripts\BulletMover.cs" />
-    <Compile Include="Assets\Scripts\ComponentToggle.cs" />
-    <Compile Include="Assets\Scripts\DestroyObject.cs" />
-    <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\OffScreenEffect.cs" />
-    <Compile Include="Assets\Scripts\Quit.cs" />
+    <Compile Include="Assets\Scripts\enemyController.cs" />
+    <Compile Include="Assets\Scripts\gameManager.cs" />
+    <Compile Include="Assets\Scripts\no.cs" />
     <Compile Include="Assets\Scripts\ReEnterScreen.cs" />
     <Compile Include="Assets\Scripts\ShipController.cs" />
+    <Compile Include="Assets\Scripts\yes.cs" />
     <None Include="Assets\Sprites\spaceshooter\Spritesheet\sheet.xml" />
     <None Include="Assets\Sprites\spaceshooter\license.txt" />
     <Reference Include="UnityEditor.StandardEvents">

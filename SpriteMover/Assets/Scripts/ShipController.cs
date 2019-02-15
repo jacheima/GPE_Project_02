@@ -12,18 +12,27 @@ public class ShipController : MonoBehaviour
     public Transform ShotSpawn;
     public float FireRate;
     private float _nextFire;
+    public float playerRotateSpeed = 90f;
 
-    private GameController gameController;
+    private gameManager GameManager;
+
+    
+
+    
+
+
 
 
 	// Use this for initialization
-	void Start () {
-        
-	}
+	void Start ()
+	{
+	   
+    }
 	
 	// Update is called once per frame
 	void Update ()
 	{
+        //if the player presses space and the time is greater than next fire
 	    if (Input.GetKeyDown(KeyCode.Space) && Time.time > _nextFire)
 	    {
 	        _nextFire = Time.time + FireRate;
@@ -31,50 +40,82 @@ public class ShipController : MonoBehaviour
 	        Instantiate(Shot, ShotSpawn.position, ShotSpawn.rotation);
 	        //as GameObject;
 	    }
-	    
-	}
-    private void FixedUpdate()
-    {
         // if the player presses the left arrow or the a key
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) 
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            //This rotates the ship on the z axis 90 degrees over 1 second. This allows for a smoother rotate in a positive direction.
-            transform.Rotate(new Vector3(0f, 0f, 90f) * Time.deltaTime);  
+            //if the isGameEnded variable in the gameManager equals false
+            if (gameManager.instance.isGameEnded == false)
+            {
+                //This rotates the ship on the z axis 90 degrees over 1 second. This allows for a smoother rotate in a positive direction.
+                transform.Rotate(new Vector3(0f, 0f, playerRotateSpeed) * Time.deltaTime);
+            }
+            //otherwise
+            else
+            {
+                //set the player location to:
+                transform.position = new Vector3(-7.37f, .27f, 0.0f);
+            }
+            
+
         }
 
         // if the player presses the right arrow or d key
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))  
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D))
         {
-            //This rotates the ship on the z axis 90 degrees over 1 second. This allows for a smoother rotate in a negative direction.
-            transform.Rotate(new Vector3(0f, 0f, -90f) * Time.deltaTime); 
+            // if the isGameEnded variable in the gameManager is equal to false
+            if (gameManager.instance.isGameEnded == false)
+            {
+                //This rotates the ship on the z axis 90 degrees over 1 second. This allows for a smoother rotate in a negative direction.
+                transform.Rotate(new Vector3(0f, 0f, -playerRotateSpeed) * Time.deltaTime);
+            }
+            //otherwise
+            else
+            {
+                //move the player to this location
+                transform.position = new Vector3(0.61f, 0.27f, 0.0f);
+            }
+            
         }
 
         //if the player presses the up arrow or the w key
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))  
+        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && gameManager.instance.isGameEnded == false)
         {
             // This lets the player move forward in the direction they are facing
             transform.position += transform.up * Speed;
         }
 
-        //if the player press space bar
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (transform.position.y < -12.13 || transform.position.y > 12.13)
         {
-          //this is where the shooting mechanic will go
+            transform.position = new Vector3(0, 0, 0);
+            gameManager.instance.DecrementLives();
         }
-    }
+        if (transform.position.x < -25.43 || transform.position.x > 25.43)
+        {
+            transform.position = new Vector3(0, 0, 0);
+            gameManager.instance.DecrementLives();
+        }
 
-    private void OnTriggerEnter2D(Collider2D other)
+
+
+
+
+    }
+    private void OnCollisionEnter2D(Collision2D other)
     {
+        //if an object collides with the player that is not the bullet
         if (other.gameObject.tag != "bullet")
         {
             //move the ship to the center of the screen
             transform.position = new Vector3(0, 0, 0);
 
             //lose a life
-            gameController.DecrementLives();
+            gameManager.instance.DecrementLives();
         }
 
-
     }
+
+   
+   
+
 }
 

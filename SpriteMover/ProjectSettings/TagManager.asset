@@ -10,6 +10,7 @@ TagManager:
   - Small Asteroid
   - ship
   - Large Asteroid
+  - Enemy Ship
   layers:
   - Default
   - TransparentFX

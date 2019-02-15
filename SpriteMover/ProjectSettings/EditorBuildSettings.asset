@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/PurpleAsteriods.unity
+    guid: cb3e2238ff39fa041a8a33e46a131480
   m_configObjects: {}

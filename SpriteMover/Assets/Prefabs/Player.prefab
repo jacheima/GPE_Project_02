@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114642053300235868}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.1
-  Shot: {fileID: 1716831856318438, guid: 64cbc65ff9c856f498b3c3d023f26a60, type: 2}
+  Shot: {fileID: 1553672769029430, guid: 64cbc65ff9c856f498b3c3d023f26a60, type: 2}
   ShotSpawn: {fileID: 4729768373297090}
   FireRate: 0.25
 --- !u!114 &114642053300235868
